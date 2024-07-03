@@ -36,4 +36,4 @@ const Register=async (req,res)=>{
    return res.json(jsonGenerate(StatusCode.VALIDATION_ERROR,"Validation error",errors))
 }
 
-export default Register
+export default Register;

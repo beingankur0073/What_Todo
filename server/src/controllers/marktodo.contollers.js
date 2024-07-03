@@ -4,7 +4,8 @@ import { StatusCode } from "../utils/constants.js";
 import Todo from '../models/todo.models.js'
 
 export const MarkTodo=async (req,res)=>{
-    const error=validationResult(req);
+    console.log(req.body);
+    const error=validationResult(res);
     if(!error.isEmpty()) return res.json(jsonGenerate(StatusCode.VALIDATION_ERROR,"todo id is required",error.mapped()))
 
     try {

@@ -3,6 +3,7 @@ import apiRoute, { apiProtected } from "./routes/api.js";
 import AuthMiddleware from "./middlewares/AuthMiddleware.js";
 import dotenv from 'dotenv'
 import connectDB from "./db/index.js";
+import cors from 'cors'
 dotenv.config();
 
 
@@ -13,6 +14,7 @@ const app=express();
 
 connectDB()
 .then(()=>{
+    app.use(cors());
     app.use(express.json());
     app.use('/api/',apiRoute);
     app.use('/api/',AuthMiddleware,apiProtected);

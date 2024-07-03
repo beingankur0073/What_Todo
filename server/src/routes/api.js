@@ -16,7 +16,8 @@ export const apiProtected=express.Router();
 
 
 apiRoute.post('/register',RegisterSchema,Register);
-apiRoute.post('/login',LoginSchema,Login)
+apiRoute.post('/login',LoginSchema,Login);
+
 // protected routes
 apiProtected.post('/createTodo',[check("desc","Todo desc is required").exists()],createTodo);
 apiProtected.get('/todolist',GetTodos);

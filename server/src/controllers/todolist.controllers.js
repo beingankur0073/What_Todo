@@ -3,6 +3,7 @@ import { StatusCode } from '../utils/constants.js'
 import { jsonGenerate } from "../utils/helpers.js";
 
 export const GetTodos=async(req,res)=>{
+
     try{
         const list=await User.findById(req.userId)
         .select("-password")

@@ -5,6 +5,7 @@ import Todo from '../models/todo.models.js'
 import User from '../models/user.models.js'
 
 export const createTodo=async (req,res)=>{
+    console.log(req);
     const error=validationResult(req);
     if(!error.isEmpty()){
         return res.json(jsonGenerate(StatusCode.VALIDATION_ERROR,"Todo is required",error.mapped()))
@@ -21,6 +22,6 @@ export const createTodo=async (req,res)=>{
         }
 
     } catch (error) {
-        return res.json(jsonGenerate(StatusCode.UNPROCESSABLE_ENTITY,"Something went wrong",error))
+        return res.json(jsonGenerate(StatusCode.UNPROCESSABLE_ENTITY,"Something went wrong",error.mapped()))
     }
 }
